@@ -1,12 +1,13 @@
 name: 00-20260530-01
 on: workflow_dispatch
-env:                  # ← workflow直下：全ジョブ・全stepに届く
+env:
   A: 1
 jobs:
   build:
-    env:              # ← ジョブ直下：このジョブの全stepに届く
+    runs-on: ubuntu-latest
+    env:
       B: 2
     steps:
       - run: echo $C
-        env:          # ← step直下：このstepだけ
+        env:
           C: 3
